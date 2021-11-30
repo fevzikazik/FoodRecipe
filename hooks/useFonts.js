@@ -11,7 +11,7 @@ export default useFonts = async () =>
     'Roboto-Light': require('../assets/fonts/Roboto-Light.ttf'),
     'Roboto-LightItalic': require('../assets/fonts/Roboto-LightItalic.ttf'),
     'Roboto-Medium': require('../assets/fonts/Roboto-Medium.ttf'),
-    '/Roboto-MediumItalic': require('../assets/fonts/Roboto-MediumItalic.ttf'),
+    'Roboto-MediumItalic': require('../assets/fonts/Roboto-MediumItalic.ttf'),
     'Roboto-Thin': require('../assets/fonts/Roboto-Thin.ttf'),
     'Roboto-ThinItalic': require('../assets/fonts/Roboto-ThinItalic.ttf'),
     'RobotoCondensed-Bold': require('../assets/fonts/RobotoCondensed-Bold.ttf'),
