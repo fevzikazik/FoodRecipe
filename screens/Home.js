@@ -31,12 +31,12 @@ const Home = ({ navigation }) => {
                     }}
                 >
                     <Text
-                    style={{
-                        color: COLORS.darkGreen,
-                        ...FONTS.h2
-                    }}
+                        style={{
+                            color: COLORS.darkGreen,
+                            ...FONTS.h2
+                        }}
                     >Hello Client,</Text>
-                    
+
                     <Text
                         style={{
                             marginTop: 3,
@@ -49,7 +49,7 @@ const Home = ({ navigation }) => {
                 <TouchableOpacity
                     onPress={() => console.log("Profile")}
                 >
-                    <Image 
+                    <Image
                         source={images.profile}
                         style={{
                             width: 40,
@@ -68,7 +68,7 @@ const Home = ({ navigation }) => {
             <View
                 style={{
                     flexDirection: "row",
-                    height: 50,
+                    height: 40,
                     alignItems: 'center',
                     marginHorizontal: SIZES.padding,
                     paddingHorizontal: SIZES.radius,
@@ -76,7 +76,7 @@ const Home = ({ navigation }) => {
                     backgroundColor: COLORS.lightGray
                 }}
             >
-                <Image 
+                <Image
                     source={icons.search}
                     style={{
                         width: 20,
@@ -85,10 +85,12 @@ const Home = ({ navigation }) => {
                     }}
                 />
 
-                <TextInput 
+                <TextInput
                     style={{
-                        marginLeft: SIZES.radius,
-                        ...FONTS.body3
+                        marginLeft: SIZES.radius * 1.5,
+                        ...FONTS.body3,
+                        maxWidth: SIZES.width * 0.7,
+                        minWidth: SIZES.width * 0.6
                     }}
                     placeholderTextColor={COLORS.gray}
                     placeholder="Search Recipes"
@@ -147,7 +149,7 @@ const Home = ({ navigation }) => {
                         }}
                         onPress={() => console.log("See Recipes")}
                     >
-                        <Text 
+                        <Text
                             style={{
                                 color: COLORS.darkGreen,
                                 textDecorationLine: 'underline',
@@ -183,7 +185,7 @@ const Home = ({ navigation }) => {
                     horizontal
                     showsHorizontalScrollIndicator={false}
                     keyExtractor={item => `${item.id}`}
-                    renderItem={({item, index}) => {
+                    renderItem={({ item, index }) => {
                         return (
                             <TrendingCard
                                 recipeItem={item}
