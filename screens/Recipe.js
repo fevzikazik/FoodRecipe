@@ -10,13 +10,15 @@ import {
 
 import { BlurView } from 'expo-blur'
 
-import { SIZES, FONTS, COLORS, icons, } from '../constants'
+import { SIZES, FONTS, COLORS, icons} from '../constants'
+
+const HEADER_HEIGHT = SIZES.height/2.5;
 
 const Recipe = ({ navigation, route }) => {
 
-    const [selectedRecipe, setSelectedRecipe] = React.useState(null)
+    const [selectedRecipe, setSelectedRecipe] = React.useState(null);
 
-    const scrollY = useRef(new Animated.Value(0)).current
+    const scrollY = useRef(new Animated.Value(0)).current;
 
     React.useEffect(() => {
         let { recipe } = route.params
@@ -27,7 +29,10 @@ const Recipe = ({ navigation, route }) => {
         return (
             <View
                 style={{
+                    marginTop: -1000,
+                    paddingTop: 1000,
                     alignItems: 'center',
+                    overflow: 'hidden'
                 }}
             >
                 {/* Background Image */}
@@ -37,16 +42,20 @@ const Recipe = ({ navigation, route }) => {
                     style={{
                         height: HEADER_HEIGHT,
                         width: "200%",
-                        transform: [{translateY: scrollY.interpolate({
-                            inputRange: [-HEADER_HEIGHT, 0, HEADER_HEIGHT],
-                            outputRange: [-HEADER_HEIGHT / 2, 0, HEADER_HEIGHT * 0.75]
-                        })},
-                    {
-                        scale: scrollY.interpolate({
-                            inputRange: [-HEADER_HEIGHT, 0, HEADER_HEIGHT],
-                            outputRange: [2, 1, 0.75]
-                        })
-                    }]
+                        transform: [
+                            {
+                                translateY: scrollY.interpolate({
+                                    inputRange: [-HEADER_HEIGHT, 0, HEADER_HEIGHT],
+                                    outputRange: [-HEADER_HEIGHT / 2, 0, HEADER_HEIGHT * 0.75]
+                               })
+                            },
+                            {
+                                scale: scrollY.interpolate({
+                                    inputRange: [-HEADER_HEIGHT, 0, HEADER_HEIGHT],
+                                    outputRange: [2, 1, 0.75]
+                                })
+                            }
+                        ]
                     }}
                 />
                 {/* Recipe Creator Card */}
