@@ -166,7 +166,32 @@ const Recipe = ({ navigation, route }) => {
                 />
 
                 {/* Header Button Title */}
-
+                <Animated.View
+                    style={{
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        bottom: 0,
+                        alignItems: 'center',
+                        justifyContent: 'flex-end',
+                        paddingBottom: 10,
+                        opacity: scrollY.interpolate({
+                            inputRange: [HEADER_HEIGHT - 100, HEADER_HEIGHT - 50],
+                            outputRange: [0, 1]
+                        }),
+                        transform: [{
+                            translateY: scrollY.interpolate({
+                                inputRange: [HEADER_HEIGHT - 100, HEADER_HEIGHT - 50],
+                                outputRange: [50, 0],
+                                extrapolate: 'clamp'
+                            })
+                        }]
+                    }}
+                >
+                    <Text style={{color: COLORS.lightGray2, ...FONTS.body4 }}>Recipe by:</Text>
+                    <Text style={{color: COLORS.white2, ...FONTS.h3 }}>{selectedRecipe?.author?.name}</Text>
+                </Animated.View>
 
                 {/* Back Button */}
                 <TouchableOpacity
@@ -211,6 +236,7 @@ const Recipe = ({ navigation, route }) => {
                     />
                 </TouchableOpacity>
                 
+
 
             </View>
         )
@@ -276,6 +302,25 @@ const Recipe = ({ navigation, route }) => {
         )
     }
 
+    function renderRecipeInfo() {
+        return (
+            <View
+                style={{
+                    flexDirection: 'row',
+                    height: 130,
+                    width: SIZES.width,
+                    paddingHorizontal: 30,
+                    paddingVertical: 20,
+                    alignItems: 'center',
+                }}
+            >
+                {/* Recipe */}
+                
+                {/* Viewers */}
+
+            </View>
+        )
+    }
     return (
         <View
             style={{
@@ -291,7 +336,9 @@ const Recipe = ({ navigation, route }) => {
                     <View>
                         {/* Header */}
                         {renderRecipeCardHeader()}
+
                         {/* Info */}
+                        {renderRecipeInfo()}
 
                         {/* ingredient Title */}
 
